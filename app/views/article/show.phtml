@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article id: <?= $article->id ?></title>
+</head>
+<body>
+    <h2>Article id: <?= $article->id ?></h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Flag</th>
+                <th scope="col">title</th>
+                <th scope="col">description</th>
+                <th scope="col">content</th>
+                <th scope="col">count</th>
+                <th scope="col">status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><?= $article->id ?></th>
+                <td><?= $article->flag ?></td>
+                <td><?= $article->title ?></td>
+                <td><?= $article->description ?></td>
+                <td><?= $article->content ?></td>
+                <td><?= $article->count ?></td>
+                <td><?= $article->status ?></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/demo/article/edit/<?= $article->id ?>" class="btn btn-info">Edit article</a>
+    <button form="delete-article-form" class="btn btn-danger">Delete article</button>
+    <?= $this->tag->a('/demo/article', 'Home', ['class' => 'btn btn-secondary', 'style' => 'margin-top: 1rem; margin-bottom: 2rem']) ?>
+
+    <form action="/demo/article/destroy/<?= $article->id ?>" method="post" id="delete-article-form">
+
+    </form>
+</body>
+</html>

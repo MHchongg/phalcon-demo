@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Edit Article id: <?= $article->id ?> </h2>
+
+    <form action="/demo/article/update/<?= $article->id ?>" method="post">
+        <div class="mb-3">
+            <label for="flag" class="form-label">Flag</label>
+            <input type="number" class="form-control" id="flag" name="flag" value="<?= $article->flag ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="<?= $article->title ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" name="description" value="<?= $article->description ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <input type="text" class="form-control" id="content" name="content" value="<?= $article->content ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="count" class="form-label">Count</label>
+            <input type="number" class="form-control" id="count" name="count" value="<?= $article->count ?>" required>
+        </div>
+        <select class="form-select" aria-label="Default select example" name="status">
+            <option value="0" <?= $article->status == 0 ? "selected" : "" ?>>InActive</option>
+            <option value="1" <?= $article->status == 1 ? "selected" : "" ?>>Active</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Submit</button>
+    </form>
+    <?= $this->tag->a('/demo/article', 'Home', ['class' => 'btn btn-secondary', 'style' => 'margin-top: 1rem; margin-bottom: 2rem']) ?>
+</body>
+</html>

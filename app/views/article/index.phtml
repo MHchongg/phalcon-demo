@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+</head>
+<body>
+    <h2>Article</h2>
+    <ul>
+        <?php foreach($articles as $article) : ?>
+            <li>
+                <?= $this->tag->a('article/show/'.$article->id, $article->title) ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <?= $this->tag->a('article/create', 'Create new article', ['class' => 'btn btn-primary']) ?>
+</body>
+</html>
